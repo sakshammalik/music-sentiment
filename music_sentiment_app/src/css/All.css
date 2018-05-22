@@ -1,0 +1,47 @@
+.title-header{
+    font-size: 50px;
+}
+.music-header{
+    width: 70px;
+    height: 70px;
+}
+
+.table-header{
+    margin-left: 600px;
+}
+
+.search{
+    margin-left: 600px;
+    width: 160px;
+
+}
+.cover-pic{
+    width: 100px;
+    height: 100px;
+}
+.song-title{
+    margin: 0px;
+}
+.artist-name{
+    margin: 0px;
+}
+.album-name{
+    margin: 0px;
+}
+.cover-pic-modal{
+    width: 250px;
+    height: 250px;
+}
+.modal {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content{
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
