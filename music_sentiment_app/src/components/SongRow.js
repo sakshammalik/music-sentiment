@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import '../css/All.css'
 
 class SongRow extends Component {
+    pauseSong = () => {
+        this.refs.songPause.pause();
+    };
     render() {
         return (
             <table key={this.props.songItem.id}>
@@ -22,7 +25,7 @@ class SongRow extends Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title">{this.props.songItem.title}</h3>
-                            <button type="button" className="close" data-dismiss="modal" onClick={()=>{}}>&times;</button>
+                            <button type="button" className="close" data-dismiss="modal" onClick={this.pauseSong}>&times;</button>
                         </div>
                         <div className="modal-body">
                             <table className={this.props.songItem.id}>
@@ -41,7 +44,7 @@ class SongRow extends Component {
                                                 <td><p className="preview-song">Song Preview:</p></td>
                                                 <td>
                                                     <p>
-                                                        <audio controls>
+                                                        <audio controls ref="songPause">
                                                             <source src={this.props.songItem.preview}
                                                                     type="audio/mpeg"/>
                                                             Your browser does not support the audio element.
