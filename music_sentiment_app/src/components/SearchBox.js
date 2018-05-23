@@ -9,7 +9,8 @@ class SearchBox extends Component {
     constructor(props){
         super(props);
         this.state = {data: [],
-                        query: ''}
+                        query: '',
+        loader_bool:false}
     };
     handleChange=(event)=> {
     this.setState({query: event.target.value},()=>{
@@ -17,6 +18,9 @@ class SearchBox extends Component {
   };
     getSongInfo=(e) => {
               if (e.key === 'Enter' || e.type === 'click') {
+                  this.setState({
+                          loader_bool: true
+                      });
                   axios.get('https://deezerdevs-deezer.p.mashape.com/search',{
                       params:{
                           q:this.state.query
@@ -27,7 +31,8 @@ class SearchBox extends Component {
                       }
                   }).then((resp)=>{
                       this.setState({
-                          data: resp.data.data
+                          data: resp.data.data,
+                          loader_bool: false
                       });
                       console.log(resp);
                   });
@@ -36,11 +41,18 @@ class SearchBox extends Component {
 
 
   render() {
+      let final_data;
+      if (this.state.loader_bool){
+          final_data = <img className={"loader-gif"} src={"loader.gif"} alt={'loader'}/>
+      }
+      else{
+          final_data = <Songs data={this.state.data}/>
+      }
     return (
       <div>
            <input value={this.state.query} onChange={this.handleChange} className={"search"} placeholder={"Search for a song..."} onKeyPress={this.getSongInfo}/>
           <button className="search-button" type="submit" onClick={this.getSongInfo}> Search</button>
-              <Songs data={this.state.data}/>
+          {final_data}
       </div>
     );
   }
