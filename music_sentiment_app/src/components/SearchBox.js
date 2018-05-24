@@ -18,6 +18,7 @@ class SearchBox extends Component {
   };
     getSongInfo=(e) => {
               if (e.key === 'Enter' || e.type === 'click') {
+                  if (this.state.query){
                   this.setState({
                           loader_bool: true
                       });
@@ -37,6 +38,11 @@ class SearchBox extends Component {
                       console.log(resp);
                   });
               }
+              else{
+                      this.setState({
+                          data: 'No search'
+                      })
+                  }}
           };
 
 
@@ -46,7 +52,12 @@ class SearchBox extends Component {
           final_data = <img className={"loader-gif"} src={"loader.gif"} alt={'loader'}/>
       }
       else{
-          final_data = <Songs data={this.state.data}/>
+          if (this.state.data === 'No search'){
+              final_data = <div className={"empty-search"}><h1>Please enter a search term</h1></div>
+          }
+          else {
+              final_data = <Songs data={this.state.data}/>
+          }
       }
     return (
       <div>

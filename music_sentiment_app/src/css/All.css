@@ -7,40 +7,52 @@
 }
 
 .table-header{
-    margin-left: 600px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .search{
-    margin-left: 600px;
-    width: 160px;
-
+    margin-top: 15px;
+    margin-right: 30%;
+    margin-left: 30%;
+    width: 40%;
+    display: inline-block;
+}
+.search-button{
+   margin-top: 5px;
+    margin-right: 45%;
+    margin-left: 45%;
+    width: 10%;
+    display: inline-block;
+    background-color: black;
+    -webkit-text-fill-color: white;
 }
 .cover-pic{
     width: 100px;
     height: 100px;
 }
-.song-title{
-    margin: 0px;
-}
-.artist-name{
-    margin: 0px;
-}
-.album-name{
-    margin: 0px;
+.song-title, .artist-name, .album-name{
+    margin: 0;
 }
 .cover-pic-modal{
     width: 250px;
     height: 250px;
 }
-.modal {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+.modal-open .background-container{
+    -webkit-filter: blur(5px);
 }
 .loader-gif{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.empty-search{
+    text-align: center;
+}
+.col-sm-6{
+    margin-top: 10px;
+}
+.modal{
+    max-width: 100%;
+    max-height: 100%;
 }

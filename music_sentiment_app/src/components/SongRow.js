@@ -19,8 +19,11 @@ class SongRow extends Component {
                             <p className="album-name"><b>Album</b>: {this.props.songItem.album.title}</p>
                         </td>
                     </tr>
-                </tbody>
-                <div className="modal fade" id={this.props.songItem.id} role="dialog">
+
+                <div className="modal fade" tabIndex={-1} id={this.props.songItem.id} role="dialog" style={{
+                    'backgroundImage': `url(${this.props.songItem.album.cover_xl})`,
+                    'backgroundSize': 'cover'
+                }}>
                 <div className="modal-dialog modal-dialog-centered modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -62,7 +65,8 @@ class SongRow extends Component {
                     </div>
                 </div>
             </div>
-            </table>
+            </tbody>
+                </table>
         )
     }
 }

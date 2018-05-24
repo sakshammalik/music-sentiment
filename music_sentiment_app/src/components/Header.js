@@ -5,7 +5,7 @@ import '../css/All.css'
 class Header extends Component {
   render() {
     return (
-      <div className="Home">
+      <div>
           <table className="table-header">
               <tbody>
               <tr>
